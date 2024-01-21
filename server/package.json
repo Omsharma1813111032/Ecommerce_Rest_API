@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Ecommerce rest api using node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omsharma1813111032/Ecommerce-Rest-Api-using-Node-JS.git"
+  },
+  "author": "Mr. Om Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Omsharma1813111032/Ecommerce-Rest-Api-using-Node-JS/issues"
+  },
+  "homepage": "https://github.com/Omsharma1813111032/Ecommerce-Rest-Api-using-Node-JS#readme"
+}
