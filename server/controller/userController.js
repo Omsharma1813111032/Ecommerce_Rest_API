@@ -1,6 +1,8 @@
 const User = require("../models/userSchema")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+
+
 // regitser function
 exports.register = async(req,res) =>{
     const email = req.body.email;
@@ -16,6 +18,8 @@ exports.register = async(req,res) =>{
     }
 }
 
+
+// for user login
 exports.login = async(req,res) =>{
     const {email,password} = req.body
 
@@ -49,4 +53,42 @@ exports.login = async(req,res) =>{
         res.status(400).json({error:err})
     }
 
+}
+
+
+//fetching all  user
+
+exports.getAllUser = async(req,res) =>{
+    try{
+        const data  = await User.find()
+        res.json(data)
+    }catch(err){
+        res.status(400).json({err})
+    }
+}
+
+
+
+// fetching a single user bby id
+
+exports.getUser = async(req,res) =>{
+    const id = req.params.id
+    try{
+        const data  = await User.find({_id:id})
+        res.json(data)
+    }catch(err){
+        res.status(400).json({err})
+    }
+}
+
+
+// deleting a user
+exports.deleteUser = async(req,res) =>{
+    const id = req.params.id
+    try{
+        const data  = await User.findByIdAndDelete({_id:id})
+        res.status(200).json(data)
+    }catch(err){
+        res.status(400).json({err})
+    }
 }
