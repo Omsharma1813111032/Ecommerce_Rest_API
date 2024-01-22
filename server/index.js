@@ -11,6 +11,7 @@ const Authrouter = require("./routes/authRoutes")
 app.use("/api/user",Authrouter)
 
 
+
 app.listen(process.env.PORT,(req,res)=>{
     console.log("Server Running at ", process.env.PORT)
 })
