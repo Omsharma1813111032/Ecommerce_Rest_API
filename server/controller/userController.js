@@ -92,3 +92,24 @@ exports.deleteUser = async(req,res) =>{
         res.status(400).json({err})
     }
 }
+
+
+exports.updateUser = async(req,res) =>{
+    const {id} = req.params
+    const {firstname,lastname,email,mobile} = req.body
+    try{    
+
+        const data = await User.findByIdAndUpdate(id,{
+            firstname:firstname,
+            lastname:lastname,
+            email:email,
+            mobile:mobile,
+        })     
+        
+        res.status(200).json({"msg":"updated",data:data})     
+
+    }catch(err){
+        res.status(400).json({err})
+    }
+    
+}
