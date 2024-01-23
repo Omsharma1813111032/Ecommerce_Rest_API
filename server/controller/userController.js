@@ -27,19 +27,16 @@ exports.login = async(req,res) =>{
 
         const userExists = await User.findOne({email:email})
         if(userExists){
-            // console.log(userExists.password)
+            // console.log("Testing ",userExists._id)
             const comparePassword = await bcrypt.compare(password,userExists.password)
             // console.log(comparePassword)
             if(comparePassword===true){
 
                 const token = jwt.sign({
-                    email,password
+                    email
                 },process.env.SECRET_KEY)
 
-
                 res.status(200).json({tok:token,data:userExists})
-
-
 
             }else{
                 res.status(400).json({error:"Wrong Credentails!!"})
